@@ -15,11 +15,11 @@ let options =["" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,""];
 let currentPlayer = "X";
 let running = false;
 
+
 initializeGame();
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked)),
-    // restartBtn.addEventListener("click", restartGame());
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
 }
@@ -33,6 +33,7 @@ function cellClicked(){
 
     updateCell(this, cellIndex);
     checkWinner();
+
 }
 
 function updateCell(cell, index){
@@ -72,10 +73,3 @@ function checkWinner(){
         changePlayer();
     }
 }
-// function restartGame(){
-//     currentPlayer ="X";
-//     options = ["" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,""];
-//     statusText.textContent = `${currentPlayer}'s turn`;
-//     cells.forEach(cell => cell.textContent = "");
-//     running = true;
-// }
