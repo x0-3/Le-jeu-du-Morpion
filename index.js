@@ -15,6 +15,16 @@ let options =["" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,""];
 let currentPlayer = "X";
 let running = false;
 
+let points=0;
+
+const highScores = JSON.parse (localStorage.getItem("highScores")) || [];
+
+const maxHighScores = 3;
+
+const highScoresList=document.getElementById("highScoresList");
+console.log(highScores);//remove when done
+
+
 
 initializeGame();
 
@@ -64,6 +74,7 @@ function checkWinner(){
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`;
         running=false;
+        points+=5;// if game won then add 5
     }
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
@@ -73,3 +84,26 @@ function checkWinner(){
         changePlayer();
     }
 }
+
+function saveHighScore(){
+    const score = {
+        name: currentPlayer,
+        score:points,
+    };
+    highScores.push(score);
+    highScores.sort( (a,b)=> b.score -a.score)//sort the score from higest to lowest
+    highScores.splice(3);//only the top 5 highest score 
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));//stores the data in localStorage
+
+    //localStorage.clear(); //remove later
+    console.log(highScores);//remove later
+
+    //get the data stored in localStorage to show on the scoreboard
+    highScoresList.innerHTML =highScores
+    .map((score) => `<li>${score.name}   :      ${score.score} pts`)
+    .join("");
+}
+
+
+

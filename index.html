@@ -12,9 +12,10 @@
         <h1>Morpion</h1>
         <div class="players">
 
-            <div class="joueur1">
+            <div class="joueur1" id="player1">
                <h2>joueur 1</h2> 
                <h3>symbole: X</h3>
+               <h4>0 pts</h4>
             </div>
             
             <div id="cellContainer">
@@ -29,14 +30,22 @@
                 <div cellIndex="8" class="cell"></div>
             </div>
 
-            <div class="joueur2">
+            <div class="joueur2" id="player2">
                 <h2>joueur 2</h2>
                 <h3>symbole: O</h3>
+                <h4>0 pts</h4>
             </div> 
 
         </div>
-
         <h2 id="statusText"></h2>
+
+        <!-- <div class="container">
+            <div id="highScore" class="flex-center flex-column">
+                <ul id="highScoresList"></ul>
+            </div>
+        </div> -->
+
+        
         <a href="/"><button id="restartBtn">Restart Game</button></a>
     </div>
 

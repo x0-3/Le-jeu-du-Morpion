@@ -2,6 +2,8 @@
 /* ************************game section************************************* */
 #gameContainer{
     text-align: center;
+    width: 70%;
+    margin: auto;
 }
 
 /* *************************cell container************************************************* */
@@ -38,6 +40,7 @@
     width: 39%;
     border: 1px black;
     border-color: black;
+    text-align: center;
 }
 
 /* ******************************restart button*************************************************** */
@@ -48,4 +51,9 @@
     border-radius: 10px;
     padding: 7px;
     cursor: pointer;
+}
+
+#highScoresList{
+    list-style: none;
+    width: 92%;
 }
